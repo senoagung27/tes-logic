@@ -1,25 +1,19 @@
 <?php 
-function urutkan_angka($angka) {
-    $n = count($angka);
-  
-    for ($i = 0; $i < $n; $i++) {
-      for ($j = $i + 1; $j < $n; $j++) {
-        if ($angka[$i] > $angka[$j]) {
-          $temp = $angka[$i];
-          $angka[$i] = $angka[$j];
-          $angka[$j] = $temp;
+// Deklarasi variabel
+$angka = [77, 11, 66, 75, 77, 1, 9, 3, 7, 58, 7, 69, 36, 9, 33, 33, 33, 31, 21, 98, 1];
+$ukuran = count($angka);
+
+// Looping untuk mengurutkan angka
+for ($i = 0; $i < $ukuran; $i++) {
+    for ($j = 0; $j < $ukuran - $i - 1; $j++) {
+        if ($angka[$j] > $angka[$j + 1]) {
+            // Swap angka
+            $temp = $angka[$j];
+            $angka[$j] = $angka[$j + 1];
+            $angka[$j + 1] = $temp;
         }
-      }
     }
-  
-    return $angka;
-  }
-  
-  $angka = [77, 11, 66, 75, 77, 1, 9, 3, 7, 58, 7, 69, 36, 9, 33, 33, 33, 31, 21, 98, 1];
-  
-  $hasil = urutkan_angka($angka);
-  
-  echo "Hasil pengurutan angka dari terkecil ke terbesar: ";
-  foreach ($hasil as $nilai) {
-    echo $nilai . " ";
-  }
+}
+
+// Cetak angka yang sudah diurutkan
+print_r($angka);
